@@ -11,11 +11,13 @@ public interface SwiftRepository extends JpaRepository<SwiftCode, String> {
 
     SwiftCode findBySwiftCode(String headquartersSwiftCode);
 
+    SwiftCode findBySwiftCodeStartsWithAndIsHeadquarterTrue(String swiftCode);
+
     List<SwiftCode> findBySwiftCodeLike(String branchSwiftCodePattern);
 
     List<SwiftCode> findAllByHeadquarter(SwiftCode id);
 
     List<SwiftCode> findAllByCountryIso2(String countryIso2);
 
-
+    void removeSwiftCodeBySwiftCode(String swiftCode);
 }

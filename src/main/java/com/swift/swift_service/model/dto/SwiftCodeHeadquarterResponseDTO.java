@@ -8,5 +8,5 @@ public record SwiftCodeHeadquarterResponseDTO(
         String countryName,
         Boolean isHeadquarter,
         String swiftCode,
-        List<SwiftCodeBranchDTO> branches
+        List<SwiftCodeHeadquartersBranchDTO> branches
 ) implements SwiftCodeResponse {}

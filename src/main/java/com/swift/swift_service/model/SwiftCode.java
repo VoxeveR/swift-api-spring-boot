@@ -24,11 +24,13 @@ public class SwiftCode {
     @Column(name = "country_iso2", nullable = false, length = 2)
     private String countryIso2;
 
+
     @Column(name = "swift_code", nullable = false, length = 11)
     private String swiftCode;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "code_type", nullable = false, length = 10)
-    private String codeType;
+    private BICType codeType;
 
     @Column(name = "institution_name", nullable = false)
     private String institutionName;
@@ -36,13 +38,13 @@ public class SwiftCode {
     @Column(name = "address", nullable = false, length = Integer.MAX_VALUE)
     private String address;
 
-    @Column(name = "town_name", nullable = false, length = 100)
+    @Column(name = "town_name", length = 100)
     private String townName;
 
     @Column(name = "country_name", nullable = false, length = 100)
     private String countryName;
 
-    @Column(name = "time_zone", nullable = false, length = 50)
+    @Column(name = "time_zone", length = 50)
     private String timeZone;
 
     @Column(name = "is_headquarter", nullable = false)

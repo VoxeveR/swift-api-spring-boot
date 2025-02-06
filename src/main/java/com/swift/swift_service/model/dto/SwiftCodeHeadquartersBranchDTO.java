@@ -1,6 +1,6 @@
 package com.swift.swift_service.model.dto;
 
-public record SwiftCodeBranchDTO(
+public record SwiftCodeHeadquartersBranchDTO(
         String address,
         String bankName,
         String countryISO2,

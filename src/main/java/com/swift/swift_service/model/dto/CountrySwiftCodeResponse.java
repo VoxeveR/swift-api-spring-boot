@@ -5,5 +5,5 @@ import java.util.List;
 public record CountrySwiftCodeResponse(
     String countryISO2,
     String countryName,
-    List<SwiftCodeBranchDTO> branches
+    List<SwiftCodeHeadquartersBranchDTO> branches
 ) {}

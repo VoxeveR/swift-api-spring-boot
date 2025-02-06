@@ -1,5 +1,6 @@
 package com.swift.swift_service.util;
 
+import com.swift.swift_service.SwiftServiceApplication;
 import com.swift.swift_service.model.SwiftCode;
 import com.swift.swift_service.model.SwiftCodeMapper;
 import com.swift.swift_service.repository.SwiftRepository;
@@ -9,12 +10,15 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Component
@@ -53,8 +57,9 @@ public class XLSXParser {
 
     private Iterator<Row> getSpreadsheetRowIterator(String filePath, int sheetNumber) {
         try {
-            FileInputStream file = new FileInputStream(filePath);
-            XSSFWorkbook workbook = new XSSFWorkbook(file);
+            InputStream fileStream = new ClassPathResource("Interns_2025_SWIFT_CODES.xlsx").getInputStream();
+
+            XSSFWorkbook workbook = new XSSFWorkbook(fileStream);
             XSSFSheet sheet = workbook.getSheetAt(sheetNumber);
             Iterator<Row> rowIterator = sheet.iterator();
 
