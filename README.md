@@ -12,16 +12,26 @@ Clone the project
   git clone https://github.com/VoxeveR/SWIFT_API.git
 ```
 
-Go to the project directory
+Go to the project build directory
 
 ```bash
-  cd SWIFT_API
+  cd build
 ```
 
-Run using Docker (Docker installation - https://docs.docker.com/engine/install/)
+Build using docker
 
 ```bash
-  docker 
+  docker build -t springapi .
+```
+
+Run using docker compose (Docker installation - https://docs.docker.com/engine/install/)
+
+```bash
+  docker compose up
 ```
 
 
+
+
+
+__*NOTE: Database is being created and dropped at each re-launch of program. It can be changed in application.properties.*__
