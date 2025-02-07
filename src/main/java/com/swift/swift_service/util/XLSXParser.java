@@ -34,6 +34,7 @@ public class XLSXParser {
             Row row = rowIterator.next();
             XLSXRecord xlsxRecord = getXLSXRecord(row);
             String type = xlsxRecord.swiftCode().endsWith("XXX") ? "HEADQUARTERS" : "BRANCH";
+          // if(xlsxRecord.codeType().isEmpty() || xlsxRecord.codeType().isBlank()) return;
             SwiftCode swiftCode = SwiftCodeMapper.mapXLSXRecordToSwiftCode(xlsxRecord);
             typeSave(swiftCode, xlsxRecord.swiftCode(), type);
         }
@@ -54,7 +55,7 @@ public class XLSXParser {
 
     private Iterator<Row> getSpreadsheetRowIterator(String filePath, int sheetNumber) {
         try {
-            InputStream fileStream = new ClassPathResource("Interns_2025_SWIFT_CODES.xlsx").getInputStream();
+            InputStream fileStream = new ClassPathResource(filePath).getInputStream();
 
             XSSFWorkbook workbook = new XSSFWorkbook(fileStream);
             XSSFSheet sheet = workbook.getSheetAt(sheetNumber);
@@ -68,7 +69,7 @@ public class XLSXParser {
         }
     }
 
-    private void skipHeadersRow(Iterator<Row> rowIterator){
+    public void skipHeadersRow(Iterator<Row> rowIterator){
         if(rowIterator.hasNext()){
             rowIterator.next();
         }

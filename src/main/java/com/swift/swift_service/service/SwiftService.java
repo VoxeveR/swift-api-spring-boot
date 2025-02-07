@@ -7,6 +7,7 @@ import com.swift.swift_service.model.dto.SwiftCodeHeadquartersBranchDTO;
 import com.swift.swift_service.model.dto.SwiftCodeDTO;
 import com.swift.swift_service.model.dto.SwiftCodeResponse;
 import com.swift.swift_service.model.BICType;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.swift.swift_service.repository.SwiftRepository;
@@ -21,6 +22,7 @@ import java.util.Optional;
 
 @Slf4j
 @Service
+@Transactional
 public class SwiftService {
 
     private final SwiftRepository swiftRepo;
@@ -139,6 +141,7 @@ public class SwiftService {
     private Boolean checkLengthConstraint(int length){
         return length != 8 && length != 11;
     }
+
 
     public ResponseEntity<Map<String, String>> deleteSwiftCode(String swiftCode) {
 
