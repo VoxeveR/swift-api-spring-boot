@@ -18,13 +18,13 @@ Go to the project build directory
   cd build
 ```
 
-Build using docker
+Build using docker (docker installation - https://docs.docker.com/engine/install/)
 
 ```bash
   docker build -t springapi .
 ```
 
-Run using docker compose (Docker installation - https://docs.docker.com/engine/install/)
+Run using docker compose 
 
 ```bash
   docker compose up
