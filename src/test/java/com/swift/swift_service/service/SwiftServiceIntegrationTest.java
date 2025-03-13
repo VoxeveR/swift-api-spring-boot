@@ -26,7 +26,7 @@ public class SwiftServiceIntegrationTest {
     void shouldSaveAndDeleteSwiftCodeFromDatabaseThenGiveResponseSwiftCodeDeleted() {
         SwiftCodeDTO swiftCodeDTO = new SwiftCodeDTO(
                 "testAdress",
-                "NAPAD NA BANK WSZYSYC GÓRY RENCE",
+                "testtest",
                 "TE",
                 "testCountryName",
                 false,
